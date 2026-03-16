@@ -69,7 +69,28 @@
       top: -0.55em;
       font-weight: 700;
     }
-    
+
+    .links {
+      margin-top: 3.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+    }
+
+    .links a {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: #1d1d1f;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.3s ease;
+    }
+
+    .links a:hover {
+      color: #4285F4;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
@@ -79,6 +100,10 @@
 <body>
   <div class="container">
     <div class="logo"><span id="text"></span><span class="cursor"></span></div>
+    <div class="links">
+      <a href="https://yy.y3z.ai">YY</a>
+      <a href="https://yz.y3z.ai">YZ</a>
+    </div>
   </div>
   <script>
     const el = document.getElementById('text');
