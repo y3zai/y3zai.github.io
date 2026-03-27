@@ -7,7 +7,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-9YZVWZNQWQ');
   </script>
   <meta charset="UTF-8">
@@ -26,42 +25,30 @@
       font-family: 'Outfit', sans-serif;
       background: #f8f6f2;
       color: #1d1d1f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
 
     .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
       text-align: center;
       animation: fadeIn 1.2s ease;
     }
 
+    /* Logo */
     .logo {
       font-size: clamp(5rem, 14vw, 10rem);
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1;
-      color: #0ABAB5;
+      margin-bottom: 80px;
     }
 
     .logo .y { color: #4285F4; }
     .logo .three { color: #FBBC05; }
     .logo .z { color: #EA4335; }
-
-    .logo .cursor::after {
-      content: '|';
-      font-weight: 300;
-      color: rgba(134, 132, 126, 0.5);
-      animation: blink 1s ease-in-out infinite;
-      margin-left: 1px;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
 
     .logo sup {
       font-size: 0.38em;
@@ -70,112 +57,129 @@
       font-weight: 700;
     }
 
-    .links {
-      margin-top: 3.5rem;
-      display: flex;
-      justify-content: center;
-      gap: 5rem;
+    /* Section labels */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: #86847e;
+      text-transform: uppercase;
+      margin-bottom: 24px;
     }
 
-    .links a {
-      font-family: 'Outfit', sans-serif;
-      font-size: 2rem;
+    /* Projects */
+    .projects {
+      margin-bottom: 64px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      display: block;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .card-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 0.875rem;
+      color: #86847e;
+      line-height: 1.5;
+    }
+
+    /* People */
+    .people {
+      font-size: 1.125rem;
       font-weight: 500;
+    }
+
+    .people a {
       color: #1d1d1f;
       text-decoration: none;
-      letter-spacing: 0.08em;
       transition: color 0.3s ease;
     }
 
-    .links a:hover {
+    .people a:hover {
       color: #4285F4;
     }
 
+    .people .dot {
+      color: #c7c5c0;
+      margin: 0 16px;
+    }
+
+    /* Animation */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 540px) {
+      .container {
+        padding: 60px 20px 48px;
+      }
+
+      .logo {
+        margin-bottom: 56px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .projects {
+        margin-bottom: 48px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="logo"><span id="text"></span><span class="cursor"></span></div>
-    <div class="links">
-      <a href="https://yy.y3z.ai">YY</a>
-      <a href="https://yz.y3z.ai">YZ</a>
+    <div class="logo">
+      <span class="y">Y</span><sup class="three">3</sup><span class="z">Z</span>
+    </div>
+
+    <div class="projects">
+      <div class="section-label">Projects</div>
+      <div class="cards">
+        <a class="card" href="https://github.com/y3zai/memio">
+          <div class="card-name">memio</div>
+          <div class="card-desc">Unified memory gateway for AI agents</div>
+        </a>
+        <a class="card" href="https://github.com/y3zai/world-opinion">
+          <div class="card-name">world-opinion</div>
+          <div class="card-desc">See what the world thinks. Analyze any webpage with AI and instantly find related prediction markets on Polymarket.</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="people">
+      <div class="section-label">People</div>
+      <a href="https://yy.y3z.ai">Yuan Yuan</a>
+      <span class="dot">·</span>
+      <a href="https://yz.y3z.ai">Yu Zheng</a>
     </div>
   </div>
-  <script>
-    const el = document.getElementById('text');
-    const phrases = [
-      { html: '<span class="y">Y</span><sup class="three">3</sup><span class="z">Z</span>', plain: 'Y3Z' },
-      { html: 'The Time Is Now', plain: 'The Time Is Now' }
-    ];
-    let phraseIndex = 0;
-    const TYPE_SPEED = 100;
-    const DELETE_SPEED = 70;
-    const PAUSE = 2000;
-
-    function typePhrase(phrase, callback) {
-      const chars = phrase.plain.split('');
-      let i = 0;
-      const interval = setInterval(() => {
-        i++;
-        // Build HTML progressively: for Y3Z use styled HTML, for plain text just slice
-        if (phrase.plain === 'Y3Z') {
-          const partial = phrase.plain.slice(0, i);
-          let html = '';
-          for (const c of partial) {
-            if (c === 'Y') html += '<span class="y">Y</span>';
-            else if (c === '3') html += '<sup class="three">3</sup>';
-            else if (c === 'Z') html += '<span class="z">Z</span>';
-          }
-          el.innerHTML = html;
-        } else {
-          el.textContent = phrase.plain.slice(0, i);
-        }
-        if (i >= chars.length) {
-          clearInterval(interval);
-          setTimeout(callback, PAUSE);
-        }
-      }, TYPE_SPEED);
-    }
-
-    function deletePhrase(callback) {
-      const current = el.textContent;
-      let len = current.length;
-      const interval = setInterval(() => {
-        len--;
-        if (el.querySelector('sup')) {
-          // It's the styled Y3Z
-          const partial = 'Y3Z'.slice(0, len);
-          let html = '';
-          for (const c of partial) {
-            if (c === 'Y') html += '<span class="y">Y</span>';
-            else if (c === '3') html += '<sup class="three">3</sup>';
-            else if (c === 'Z') html += '<span class="z">Z</span>';
-          }
-          el.innerHTML = html;
-        } else {
-          el.textContent = current.slice(0, len);
-        }
-        if (len <= 0) {
-          clearInterval(interval);
-          setTimeout(callback, 300);
-        }
-      }, DELETE_SPEED);
-    }
-
-    function loop() {
-      typePhrase(phrases[phraseIndex], () => {
-        deletePhrase(() => {
-          phraseIndex = (phraseIndex + 1) % phrases.length;
-          loop();
-        });
-      });
-    }
-
-    loop();
-  </script>
 </body>
 </html>
