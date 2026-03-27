@@ -11,9 +11,12 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Y3Z builds AI tools. Projects include memio and world-opinion.">
   <title>Y³Z</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
 
     * {
       margin: 0;
@@ -152,6 +155,12 @@
         margin-bottom: 48px;
       }
     }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .container { animation: none; }
+      .card { transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -163,11 +172,11 @@
     <div class="projects">
       <div class="section-label">Projects</div>
       <div class="cards">
-        <a class="card" href="https://github.com/y3zai/memio">
+        <a class="card" href="https://github.com/y3zai/memio" target="_blank" rel="noopener">
           <div class="card-name">memio</div>
           <div class="card-desc">Unified memory gateway for AI agents</div>
         </a>
-        <a class="card" href="https://github.com/y3zai/world-opinion">
+        <a class="card" href="https://github.com/y3zai/world-opinion" target="_blank" rel="noopener">
           <div class="card-name">world-opinion</div>
           <div class="card-desc">See what the world thinks. Analyze any webpage with AI and instantly find related prediction markets on Polymarket.</div>
         </a>
@@ -176,9 +185,9 @@
 
     <div class="people">
       <div class="section-label">People</div>
-      <a href="https://yy.y3z.ai">Yuan Yuan</a>
-      <span class="dot">·</span>
-      <a href="https://yz.y3z.ai">Yu Zheng</a>
+      <a href="https://yy.y3z.ai" target="_blank" rel="noopener">Yuan Yuan</a>
+      <span class="dot" aria-hidden="true">·</span>
+      <a href="https://yz.y3z.ai" target="_blank" rel="noopener">Yu Zheng</a>
     </div>
   </div>
 </body>
