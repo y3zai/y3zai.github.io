@@ -33,7 +33,7 @@
     }
 
     .container {
-      max-width: 1120px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 80px 24px 60px;
       text-align: center;
@@ -77,7 +77,7 @@
 
     .cards {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 16px;
       text-align: left;
     }
@@ -96,6 +96,25 @@
     .card:hover {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transform: translateY(-2px);
+    }
+
+    .card.coming-soon {
+      background: transparent;
+      border: 1px dashed #d4d2cc;
+      box-shadow: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #86847e;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      cursor: default;
+    }
+
+    .card.coming-soon:hover {
+      box-shadow: none;
+      transform: none;
     }
 
     .card-name {
@@ -188,6 +207,11 @@
           <div class="card-name">photo-selector</div>
           <div class="card-desc">A local-first web app for browsing a folder of photos and marking favorites — nothing leaves your machine.</div>
         </a>
+        <a class="card" href="https://y3z.ai/scholar-connect/" target="_blank" rel="noopener">
+          <div class="card-name">scholar-connect</div>
+          <div class="card-desc">An Agent skill that maximizes your research paper.</div>
+        </a>
+        <div class="card coming-soon">Coming soon...</div>
       </div>
     </div>
 
